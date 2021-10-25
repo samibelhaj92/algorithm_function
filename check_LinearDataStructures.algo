@@ -166,7 +166,7 @@ BEGIN
 
    FOR i FROM 0 TO 3 STEP 1 DO
     key := tabOne[i]
-       IF (htab.lookup(key) = TRUE) THEN
+       IF (htab.lookup(key)) THEN
            count := htab.get(key)+1;
            htab.insert(key,count);
        ELSE
@@ -176,7 +176,7 @@ BEGIN
 
      FOR i FROM 0 TO 3 STEP 1 DO
     key := tabTwo[i]
-       IF (htab.lookup(key) = TRUE) THEN
+       IF (htab.lookup(key)) THEN
            count := htab.get(key)+1;
            htab.insert(key,count);
        ELSE
