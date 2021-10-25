@@ -1,0 +1,55 @@
+// procedure  problem 1
+
+PROCEDURE dot_product(v1,v2: ARRAY_OF FLOAT)
+
+VAR
+    ps : FLOAT := 0;
+BEGIN 
+    FOR i FROM 0 TO v1.length-1 DO
+        ps := ps+(v1[i]*v2[i]);
+    END_FOR
+    IF (ps= 0) THEN
+    Write("The dot product of these two vectors are ORTHOGONAL!!!!!") 
+    ELSE
+    Write(" Sorry, The dot product of these two vectors are NOT ORTHOGONAL!!!!!") 
+END
+
+ALGORITHM calculate_dot_product
+
+VAR
+   v1: ARRAY_OF FLOAT[];
+   v2: ARRAY_OF FLOAT[]; 
+BEGIN
+    dot_product(v1, v2)
+END_IF
+END
+
+// function  problem 1
+
+FUNCTION dot_product_function(v1,v2: ARRAY_OF FLOAT) : INTEGER
+
+VAR
+    ps : FLOAT := 0;
+BEGIN 
+        FOR i FROM 0 TO v1.length-1 DO
+        ps := ps+(v1[i]*v2[i]);
+    END_FOR
+    RETURN ps ;
+END
+
+ALGORITHM calculate_dot_product
+
+VAR
+   v1: ARRAY_OF FLOAT[];
+   v2: ARRAY_OF FLOAT[]; 
+BEGIN
+    Write ("Give me the vector 1 and 2 to play with, one by one.");
+    Read (v1[i]);
+    Read (v2[i]);
+    END_FOR
+IF ( dot_product_function(v1,v2) = 0 ) THEN
+    Write("The dot product of these two vectors are ORTHOGONAL!!!!!") 
+    ELSE
+    Write(" Sorry, The dot product of these two vectors are NOT ORTHOGONAL!!!!!") 
+END_IF
+END

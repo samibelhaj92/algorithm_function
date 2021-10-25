@@ -1,0 +1,202 @@
+ALGORITHM put_this_xtra_out
+// Problem 1, Solution 1 with an array.
+VAR
+    tabOne : ARRAY_OF INTEGER[];
+    tabTwo : ARRAY_OF INTEGER[];
+    i : INTEGER := 0;
+    j : INTEGER := 0;
+    test : BOOLEAN;
+    sum : INTEGER := 0;
+BEGIN
+    Write ("Give me the first set to play with, one by one.");
+    FOR i FROM 0 TO tabOne.length STEP 1  DO
+    Read (tabOne[i]);
+    END_FOR
+    Write ("Give me the second set to play with, one by one.");
+    i := 0;
+    FOR i FROM 0 TO tabTwo.length STEP 1  DO
+    Read (tabTwo[i]);
+    END_FOR
+
+    i := 0;
+    FOR i FROM 0 TO tabOne.length STEP 1  DO
+    test := TRUE;
+        FOR j FROM 0 TO tabTwo.length STEP 1 DO
+            IF (tabOne[i]=tabTwo[j]) THEN
+            test := FALSE;
+            END_IF
+        END_FOR
+        IF test THEN sum := sum+tabOne[i];
+        END_IF
+    END_FOR
+    i := 0;
+    j := 0;
+    FOR i FROM 0 TO tabTwo.length STEP 1 DO
+    test := TRUE;
+        FOR j FROM 0 TO tabOne.length STEP 1 DO
+            IF (tabTwo[i]=tabOne[j]) THEN
+            test := FALSE;
+            END_IF
+        END_FOR
+        IF test THEN sum := sum+tabTwo[i];
+        END_IF
+    END_FOR
+    
+    Write ("Your output is", sum); // this function will print the sum of distinct elements
+END
+// Problem 1, Solution 2 with an hash table.
+VAR
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   tabOne : ARRAY_OF INTEGER[];
+    tabTwo : ARRAY_OF INTEGER[];
+   key : INTEGER;
+   count : INTEGER;
+BEGIN
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+    Write ("Give me the first set to play with, one by one.");
+    FOR i FROM 0 TO tabOne.length STEP 1  DO
+    Read (tabOne[i]);
+    END_FOR
+    Write ("Give me the second set to play with, one by one.");
+    i := 0;
+    FOR i FROM 0 TO tabTwo.length STEP 1  DO
+    Read (tabTwo[i]);
+    END_FOR
+
+   FOR i FROM 0 TO tabOne.length STEP 1 DO
+    key := tabOne[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR
+
+     FOR i FROM 0 TO tabTwo.length STEP 1 DO
+    key := tabTwo[i]
+       IF (htab.lookup(key)) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR      
+    
+   FOR i FROM 0 TO tabOne.length STEP 1  DO
+       IF (htab.get(tabOne[i]) = 1) THEN
+           sum := sum + tabOne[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+    FOR i FROM 0 TO tabTwo.length STEP 1  DO
+       IF (htab.get(tabTwo[i]) = 1) THEN
+           sum := sum + tabTwo[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+   Write("Your output is", sum); // this function will print the sum of distinct elements
+END
+
+// Problem 2, Solution 1 with an array.
+VAR
+    tabOne : ARRAY_OF INTEGER[3];
+    tabTwo : ARRAY_OF INTEGER[3];
+    i : INTEGER := 0;
+    j : INTEGER := 0;
+    test : BOOLEAN;
+    sum : INTEGER := 0;
+BEGIN
+    Write ("Give me the first set to play with, one by one.");
+    FOR i FROM 0 TO 3 STEP 1  DO
+    Read (tabOne[i]);
+    END_FOR
+    Write ("Give me the second set to play with, one by one.");
+    i := 0;
+    FOR i FROM 0 TO 3 STEP 1  DO
+    Read (tabTwo[i]);
+    END_FOR
+
+    i := 0;
+    FOR i FROM 0 TO 3 STEP 1  DO
+    test := TRUE;
+        FOR j FROM 0 TO 3 STEP 1 DO
+            IF (tabOne[i]=tabTwo[j]) THEN
+            test := FALSE;
+            END_IF
+        END_FOR
+        IF test=FALSE THEN sum := sum+tabOne[i];
+        END_IF
+    END_FOR
+    i := 0;
+    j := 0;
+    FOR i FROM 0 TO 3 STEP 1 DO
+    test := TRUE;
+        FOR j FROM 0 TO 3 STEP 1 DO
+            IF (tabTwo[i]=tabOne[j]) THEN
+            test := FALSE;
+            END_IF
+        END_FOR
+        IF test THEN sum := sum+tabTwo[i];
+        END_IF
+    END_FOR
+    
+    Write ("Your output is", sum); // this function will print the sum of distinct elements
+END
+// Problem 2, Solution 2 with an hash table.
+VAR
+   htab : HASH_TABLE<INTEGER,INTEGER>;
+   tabOne : ARRAY_OF INTEGER[3];
+    tabTwo : ARRAY_OF INTEGER[3];
+   key : INTEGER;
+   count : INTEGER;
+BEGIN
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+    Write ("Give me the first set to play with, one by one.");
+    FOR i FROM 0 TO 3 STEP 1  DO
+    Read (tabOne[i]);
+    END_FOR
+    Write ("Give me the second set to play with, one by one.");
+    i := 0;
+    FOR i FROM 0 TO 3 STEP 1  DO
+    Read (tabTwo[i]);
+    END_FOR
+
+   FOR i FROM 0 TO 3 STEP 1 DO
+    key := tabOne[i]
+       IF (htab.lookup(key) = TRUE) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR
+
+     FOR i FROM 0 TO 3 STEP 1 DO
+    key := tabTwo[i]
+       IF (htab.lookup(key) = TRUE) THEN
+           count := htab.get(key)+1;
+           htab.insert(key,count);
+       ELSE
+           htab.insert(key,1);
+       END_IF
+   END_FOR      
+    
+   FOR i FROM 0 TO 3 STEP 1  DO
+       IF (htab.get(tabOne[i]) > 1) THEN
+           sum := sum + tabOne[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+    FOR i FROM 0 TO 3 STEP 1  DO
+       IF (htab.get(tabTwo[i]) > 1) THEN
+           sum := sum + tabTwo[i];
+           BREAK;
+       END_IF
+   END_FOR
+
+   Write("Your output is", sum); // this function will print the sum of distinct elements
+END

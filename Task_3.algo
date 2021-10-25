@@ -1,0 +1,52 @@
+ALGORITHM convert_this_dt
+VAR
+    date : STRING[5];
+    dt : INTEGER;
+    d : STRING;
+    m : STRING;
+    y : STRING;
+BEGIN
+    Write ("Give a date to convert.");
+    Read (dt);
+    date := dt.ToString;
+    d := date[0];
+    d := d.Concat(date[1]);
+    m := date[2];
+    m := m.Concat(date[3]);
+    y := "20";
+    y := y.Concat(date[4]);
+    y := y.Concat(date[5]);
+/* **** Month STRING format **** */
+/*
+01 refer to Jannuary
+02 refer to February
+03 refer to March
+04 refer to April
+05 refer to May
+06 refer to June
+07 refer to July
+08 refer to August
+09 refer to September
+10 refer to October
+11 refer to November
+12 refer to December
+*/ 
+    SWITCH (m) DO
+        case "01" : m := "Jannuary"; BREAK; 
+        case "02" : m := "February"; BREAK; 
+        case "03" : m := "March"; BREAK; 
+        case "04" : m := "April"; BREAK; 
+        case "05" : m := "May"; BREAK; 
+        case "06" : m := "June"; BREAK; 
+        case "07" : m := "July"; BREAK; 
+        case "08" : m := "August"; BREAK; 
+        case "09" : m := "September"; BREAK; 
+        case "10" : m := "October"; BREAK; 
+        case "11" : m := "November"; BREAK; 
+        case "12" : m := "December"; BREAK; 
+        default : m := ("Wrong number")
+    END_SWITCH
+    Write ("Day", d);
+    Write ("Month", m);
+    Write ("Year", y);
+END

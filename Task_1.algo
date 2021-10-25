@@ -1,0 +1,10 @@
+ALGORITHM task_one
+VAR
+    x, y, z, kes : INTEGER ;
+BEGIN
+    kes := x;
+    x := y;
+    y := z;
+    z := kes;
+    write ("never never never understand this b") 
+END

@@ -1,0 +1,20 @@
+ALGORITHM paranthese
+VAR
+    ch : char ;
+    num : integer:=0;
+BEGIN
+
+    WHILE (ch <>'#' AND num>0 ) DO
+        IF (ch<>"+" OR  ch <> "-" OR ch<>"/"OR ch<>"*"OR ch NOT IN[0...9])THEN{
+        write("invalide");
+        ELSE_IF {(ch='(') THEN
+            num++;
+        ELSE_IF(ch=')')THEN
+        num-- ;
+        END_IF
+        }
+    END_WHILE
+IF( num =0)then 
+write ("true")
+ELSE write ("false")
+END

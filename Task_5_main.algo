@@ -1,0 +1,25 @@
+
+ALGORITHM task_two
+VAR
+num : INTEGER;
+ch : char;
+BEGIN
+WHILE (ch<>"#" and num>0) DO
+if(ch<>"+" OR  ch <> "+" OR ch<>"/"OR ch<>"*"OR ch NOT IN[0...9]){
+    write ("invalide");
+ 
+       elseif(ch="("){
+           num++; 
+       }
+       else if
+       (ch=")"){
+       num--;
+   }
+  
+END_WHILE
+ if(num=0){
+write("true")
+   }
+   else
+write("false")
+END
