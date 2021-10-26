@@ -1,0 +1,24 @@
+PROCEDURE sorting_cards(VAR hand : ARRAY_OF INTEGER[])
+VAR
+   i,j,current : INTEGER;
+BEGIN
+    FOR i = 1 AND i < hand.length DO
+       current = hand[i];
+       j = i - 1;
+       WHILE (j >= 0 AND hand[j] > current) DO
+           hand[j+1] = hand[j];
+           IF (hand[j] < hand[j-1]) THEN
+           j--;
+           END_IF
+       END_WHILE
+       hand[j + 1]= current;
+       END_FOR
+END
+
+ALGORITHM sort_your_cards
+VAR
+   hand: ARRAY_OF INTEGER[];
+BEGIN
+    dorting_cards(hand);
+    write("Your cards should be soretd like", hand);
+END

@@ -20,8 +20,7 @@ VAR
    v1: ARRAY_OF FLOAT[];
    v2: ARRAY_OF FLOAT[]; 
 BEGIN
-    dot_product(v1, v2)
-END_IF
+    dot_product(v1, v2);
 END
 
 // function  problem 1
