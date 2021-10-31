@@ -1,6 +1,6 @@
 ALGORITHM count_me_this_sntnc
 VAR
-    sntnc : STRING[]; // sntnc is an array of strings
+    sntnc : CHAR[]; // sntnc is an array of characters
     i : INTEGER; // i is the index of sntnc
     cCnt : INTEGER := 0;
     wCnt : INTEGER := 1;
@@ -11,31 +11,12 @@ BEGIN
     cCnt := sntnc.length;
     sntnc := ToLower(sntnc); // this function will convert the character into lowercase
     WHILE (i<>".") DO
-    IF (i=" ") THEN
+    IF (i==" ") THEN
     wCnt := wCnt+1;
-    ELSE_IF (i="a" OR  i="e" OR i="i" OR i="o" OR i="u" or i="y") THEN
+    ELSE_IF (i=="a" OR  i=="e" OR i=="i" OR i=="o" OR i=="u" or i=="y") THEN
     vCnt := vCnt+1;
     END_IF
     END_WHILE
     Write("The length of the sentence", cCnt, "The number of words in the sentence", wCnt, "The number of vowels in the sentence", vCnt); 
-END
-    i := sntnc[i]; // i is the index of sntnc
-    cCnt : INTEGER := 0;
-    wCnt : INTEGER := 0;
-    vCnt : INTEGER := 0;
-BEGIN
-    Write("Give a sentence to count");
-    Read(sntnc[])
-    sntnc := ToLower(sntnc); // this function will convert the character into lowercase
-    WHILE (i<>".") DO
-    IF (i<>" ") THEN 
-    cCnt++;
-    ELSE_IF (i=" ") THEN
-    wCnt++;
-    ELSE_IF (i="a" OR  i="e" OR i="i" OR i="o" OR i="u" or i="y") THEN
-    vCnt++;
-    END_IF
-    END_WHILE
-    Write(cCnt, wCnt, vCnt); 
 END
 

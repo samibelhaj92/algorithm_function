@@ -44,7 +44,7 @@ BEGIN
     
     Write ("Your output is", sum); // this function will print the sum of distinct elements
 END
-// Problem 1, Solution 2 with an hash table.
+// Problem 1, Solution 2 with a hash table.
 VAR
    htab : HASH_TABLE<INTEGER,INTEGER>;
    tabOne : ARRAY_OF INTEGER[];
